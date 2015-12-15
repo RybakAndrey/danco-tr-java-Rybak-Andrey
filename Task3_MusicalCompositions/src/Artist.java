@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Artist {
 	private String name;
 	private String surname;
 	private String stageName;
 	private String country;
-	private List<Composition> compositions = new ArrayList<Composition>();
+	
 	
 	public Artist(String name, String surname,String stageName,String country){
 		this.name = name;
@@ -37,14 +35,5 @@ public class Artist {
 	}
 	public void setCountry(String country) {
 		this.country = country;
-	}
-	public List<Composition> getCompositions(){
-		return compositions;
-	}
-	public void addCompositions(Composition c){
-		compositions.add(c);
-	}
-	public void removeCompositions(Composition c){
-		compositions.remove(c);
 	}
 }
