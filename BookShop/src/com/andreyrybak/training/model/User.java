@@ -1,15 +1,22 @@
-package com.rybakandrey.training;
+package com.andreyrybak.training.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class User implements IOrderController{
+public class User {
 	private String name;
 	private String address;
 	private String phoneNumber;
-	private List<Order> orders = new ArrayList<Order>();
+	private ArrayList<Order> orders;
 	
+	public User(){
 	
+	}
+	
+	public User(String name, String address, String phoneNumber){
+		this.name = name;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+	}
 	
 	
 	public String getName() {
@@ -18,34 +25,22 @@ public class User implements IOrderController{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
-	public List<Order> getOrders() {
+	public ArrayList<Order> getOrders() {
 		return orders;
 	}
-	public void setOrders(List<Order> orders) {
+	public void setOrders(ArrayList<Order> orders) {
 		this.orders = orders;
-	}
-
-	
-	public void addOrder(Order order) {
-		orders.add(order);
-	}
-
-	public void removeOrder(Order order) {
-		orders.remove(order);
 	}
 }
