@@ -2,6 +2,7 @@ package com.andreyrybak.training.mainstorage;
 
 import com.andreyrybak.training.model.Book;
 import com.andreyrybak.training.model.Order;
+import com.andreyrybak.training.model.OrderBook;
 import com.andreyrybak.training.model.User;
 
 public class Main {
@@ -34,8 +35,23 @@ public class Main {
 		bookShop.addOrder(o1);
 		bookShop.addOrder(o2);
 		
+		OrderBook ob1 = new OrderBook(o1,b1,4);
+		o1.addBook(ob1);
 		
+		OrderBook ob2 = new OrderBook(o1,b1,5);
+		OrderBook ob3 = new OrderBook(o1,b3,4);
+		o2.addBook(ob2);
+		o2.addBook(ob3);
+		bookShop.addOrderBook(ob2);
+		bookShop.addOrderBook(ob1);
+		bookShop.addOrderBook(ob3);
+		//bookShop.showAllBooks();
+		System.out.println();
+		//bookShop.showAllOrders();
+		System.out.println();
+		bookShop.showAllOrderBooks();
 		
+
 		
 		
 

@@ -4,22 +4,32 @@ import java.util.List;
 
 import com.andreyrybak.training.model.Book;
 import com.andreyrybak.training.model.Order;
+import com.andreyrybak.training.model.OrderBook;
 import com.andreyrybak.training.model.User;
+import com.andreyrybak.training.service.BookService;
+import com.andreyrybak.training.service.OrderBookService;
+import com.andreyrybak.training.service.OrderService;
+import com.andreyrybak.training.service.UserService;
 import com.andreyrybak.training.storage.BookStorage;
+import com.andreyrybak.training.storage.OrderBookStorage;
 import com.andreyrybak.training.storage.OrderStorage;
 import com.andreyrybak.training.storage.UserStorage;
 
 public class BookShop {
 
-	BookStorage bookStorage = BookStorage.getInstance();
-	OrderStorage orderStorage = OrderStorage.getInstance();
-	UserStorage userStorage = UserStorage.getInstance();
+	BookService bookService;
+	OrderService orderService;
+	UserService userService;
+	OrderBookService orderBookService;
 	
 	
 	public static BookShop instance;
 	
 	private BookShop(){
-		
+		bookService = BookService.getInstance();
+		orderBookService = OrderBookService.getInstance();
+		userService = UserService.getInstance();
+		orderService = OrderService.getInstance();
 	}
 	
 	public static BookShop getInstance(){
@@ -35,46 +45,63 @@ public class BookShop {
 	
 	
 	public void showAllBooks(){
-		bookStorage.showAllBooks();
+		bookService.showAllBooks();
 	}
 	public List<Book> getAllBooks(){
-		return bookStorage.getAllBooks();
+		return bookService.getAllBooks();
 	}
 	public void addBook(Book book){
-		bookStorage.addBook(book);
+		bookService.addBook(book);
 	}
 	public void deleteBook(Book book){
-		bookStorage.deleteBook(book);
+		bookService.deleteBook(book);
 	}
 	public void addBookCountOnStorage(Book book, int count){
-		bookStorage.addBookCountOnStorage(book, count);
+		bookService.addBookCountOnStorage(book, count);
 	}
 	public void sortBooks(String sortBy){
-		bookStorage.sortBooks(sortBy);
+		bookService.sortBooks(sortBy);
 	}
 	
 	
 	
 	public void showAllOrders(){
-		orderStorage.showAllOrders();
+		orderService.showAllOrders();
 	}
 	public void addOrder(Order order){
-		orderStorage.addOrder(order);
+		orderService.addOrder(order);
 	}
 	public void deleteOrder(Order order){
-		orderStorage.deleteOrder(order);
+		orderService.deleteOrder(order);
 	}
 	public void sortOrders(String sortBy){
-		orderStorage.sortOrders(sortBy);
+		orderService.sortOrders(sortBy);
 	}
 	
 	
 	
 	public void addUser(User user){
-		userStorage.addUser(user);
+		userService.addUser(user);
 	}
 	public void deleteUser(User user){
-		userStorage.deleteUser(user);
+		userService.deleteUser(user);
+	}
+	
+	
+	
+	public List<OrderBook> getAllOrderBooks(){
+		return orderBookService.getAllOrderBooks();
+	}
+	
+	public void addOrderBook(OrderBook book){
+		orderBookService.addOrderBook(book);
+	}
+	public void deleteOrderBook(OrderBook book){
+		orderBookService.deleteOrderBook(book);
+	}
+	
+	public void showAllOrderBooks(){
+		orderBookService.showAllOrderBooks();
 	}
 	
 }

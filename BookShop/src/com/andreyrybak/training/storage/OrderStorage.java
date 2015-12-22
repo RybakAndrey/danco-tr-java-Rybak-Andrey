@@ -41,7 +41,8 @@ public class OrderStorage {
 		for(Order o : allOrders){
 			System.out.println(o.getUser().getName() + " - " + o.getUser().getAddress() + "," + o.getUser().getPhoneNumber() + ":");
 			for(OrderBook b : o.getOrdersBooks()){
-				System.out.println(b.getBook().getAuthor() + "-" + b.getBook().getName()+ "," + b.getBook().getYearOfPublication() + ":$" + b.getBook().getPrice());
+				System.out.println(b.getBook().getAuthor() + "-" + b.getBook().getName()+ "," + b.getBook().getYearOfPublication() 
+									+ ":$" + b.getBook().getPrice() + "(" + b.getCount() + ")");
 			}
 			System.out.println();
 		}
