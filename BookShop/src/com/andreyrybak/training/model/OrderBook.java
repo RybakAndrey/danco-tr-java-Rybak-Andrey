@@ -4,6 +4,10 @@ public class OrderBook {
 	private Order order;
 	private Book book;
 	private int count;
+	private String status;
+	
+	public static final String STATUS_BOOK_CONFIRMED = "The book confirmed";
+	public static final String STATUS_BOOK_IN_STANDBY_MODE = "Book in standby mode";
 	
 	public OrderBook(Order order, Book book, int count){
 		this.order = order;
@@ -28,5 +32,13 @@ public class OrderBook {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

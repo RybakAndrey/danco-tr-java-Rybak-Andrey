@@ -35,8 +35,5 @@ import com.andreyrybak.training.storage.OrderStorage;
 	public void deleteOrder(Order order){
 		orderStorage.deleteOrder(order);
 	}
-	public void sortOrders(String sortBy){
-		orderStorage.sortOrders(sortBy);
-	}
-	
+
 }

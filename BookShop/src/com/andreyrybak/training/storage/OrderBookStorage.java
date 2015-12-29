@@ -6,21 +6,20 @@ import java.util.List;
 import com.andreyrybak.training.model.OrderBook;
 
 public class OrderBookStorage {
+	
+	private final String ORDER_BOOKS_FORMAT = "%a - ,%n,%y: $,$p (,$c)";
+	
 	private List<OrderBook> allOrderBooks = new ArrayList<OrderBook>();
 	
-	public static OrderBookStorage instance;
+	private static OrderBookStorage instance;
 	
 	private OrderBookStorage(){
 		
 	}
 	
-	public static OrderBookStorage getInstance(){
-		if(instance == null){
-			synchronized (OrderBookStorage.class) {
-				if(instance == null){
-					instance = new OrderBookStorage();
-				}
-			}
+	public static OrderBookStorage getInstance() {
+		if (instance == null) {
+			instance = new OrderBookStorage();
 		}
 		return instance;
 	}
@@ -37,10 +36,10 @@ public class OrderBookStorage {
 		allOrderBooks.remove(book);
 	}
 	
+	
 	public void showAllOrderBooks(){
 		for(OrderBook b : allOrderBooks){
-			System.out.println(b.getBook().getAuthor() + "-" + b.getBook().getName()+ "," + b.getBook().getYearOfPublication() + 
-								":$" + b.getBook().getPrice() + "(" + b.getCount()+")");
+			//System.out.println(ORDER_BOOKS_FORMAT,b.getBook());
 		}
 	}
 	

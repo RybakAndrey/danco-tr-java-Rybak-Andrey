@@ -7,19 +7,15 @@ import com.andreyrybak.training.model.User;
 public class UserStorage {
 ArrayList<User> allUsers = new ArrayList<User>(); 
 	
-	public static UserStorage instance;
+	private static UserStorage instance;
 	
 	private UserStorage(){
 		
 	}
 	
-	public static UserStorage getInstance(){
-		if(instance == null){
-			synchronized (UserStorage.class) {
-				if(instance == null){
-					instance = new UserStorage();
-				}
-			}
+	public static UserStorage getInstance() {
+		if (instance == null) {
+			instance = new UserStorage();
 		}
 		return instance;
 	}

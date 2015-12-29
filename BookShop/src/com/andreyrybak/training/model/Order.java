@@ -8,9 +8,8 @@ import java.util.List;
 
 public class Order {
 	
-	public static final String BOOK_NOT_FOUND = "Book is not available";
-	public static final String STATUS_BOOK_AVAILABLE = "The order confirmed";
-	public static final String STATUS_BOOK_NOT_AVAILABLE = "Order in standby mode";
+	public static final String STATUS_ORDER_CONFIRMED = "The order confirmed";
+	public static final String STATUS_ORDER_IN_STANDBY_MODE = "Order in standby mode";
 	
 	private User user;
 	private List<OrderBook> ordersBooks = new ArrayList<OrderBook>();

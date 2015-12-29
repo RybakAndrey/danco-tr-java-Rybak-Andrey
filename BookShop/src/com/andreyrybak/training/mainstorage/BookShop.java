@@ -1,107 +1,69 @@
 package com.andreyrybak.training.mainstorage;
 
-import java.util.List;
-
-import com.andreyrybak.training.model.Book;
-import com.andreyrybak.training.model.Order;
-import com.andreyrybak.training.model.OrderBook;
-import com.andreyrybak.training.model.User;
-import com.andreyrybak.training.service.BookService;
-import com.andreyrybak.training.service.OrderBookService;
-import com.andreyrybak.training.service.OrderService;
-import com.andreyrybak.training.service.UserService;
 import com.andreyrybak.training.storage.BookStorage;
 import com.andreyrybak.training.storage.OrderBookStorage;
 import com.andreyrybak.training.storage.OrderStorage;
 import com.andreyrybak.training.storage.UserStorage;
 
 public class BookShop {
-
-	BookService bookService;
-	OrderService orderService;
-	UserService userService;
-	OrderBookService orderBookService;
 	
+	private static BookShop instance;
 	
-	public static BookShop instance;
-	
+	private BookStorage bookStorage;
+	private OrderStorage orderStorage;
+	private OrderBookStorage orderBookStorage;
+	private UserStorage userStorage;
+		
 	private BookShop(){
-		bookService = BookService.getInstance();
-		orderBookService = OrderBookService.getInstance();
-		userService = UserService.getInstance();
-		orderService = OrderService.getInstance();
+		setBookStorage(BookStorage.getInstance());
+		setOrderStorage(OrderStorage.getInstance());
+		setUserStorage(UserStorage.getInstance());
+		setOrderBookStorage(OrderBookStorage.getInstance());
 	}
 	
-	public static BookShop getInstance(){
-		if(instance == null){
-			synchronized (BookStorage.class) {
-				if(instance == null){
-					instance = new BookShop();
-				}
-			}
+	public static BookShop getInstance() {
+		if (instance == null) {
+			instance = new BookShop();
 		}
 		return instance;
 	}
 	
-	
-	public void showAllBooks(){
-		bookService.showAllBooks();
+
+	public BookStorage getBookStorage() {
+		return bookStorage;
 	}
-	public List<Book> getAllBooks(){
-		return bookService.getAllBooks();
+
+	public void setBookStorage(BookStorage bookStorage) {
+		this.bookStorage = bookStorage;
 	}
-	public void addBook(Book book){
-		bookService.addBook(book);
+
+	public OrderStorage getOrderStorage() {
+		return orderStorage;
 	}
-	public void deleteBook(Book book){
-		bookService.deleteBook(book);
+
+	public void setOrderStorage(OrderStorage orderStorage) {
+		this.orderStorage = orderStorage;
 	}
-	public void addBookCountOnStorage(Book book, int count){
-		bookService.addBookCountOnStorage(book, count);
+
+	public OrderBookStorage getOrderBookStorage() {
+		return orderBookStorage;
 	}
-	public void sortBooks(String sortBy){
-		bookService.sortBooks(sortBy);
+
+	public void setOrderBookStorage(OrderBookStorage orderBookStorage) {
+		this.orderBookStorage = orderBookStorage;
 	}
-	
-	
-	
-	public void showAllOrders(){
-		orderService.showAllOrders();
+
+	public UserStorage getUserStorage() {
+		return userStorage;
 	}
-	public void addOrder(Order order){
-		orderService.addOrder(order);
-	}
-	public void deleteOrder(Order order){
-		orderService.deleteOrder(order);
-	}
-	public void sortOrders(String sortBy){
-		orderService.sortOrders(sortBy);
+
+	public void setUserStorage(UserStorage userStorage) {
+		this.userStorage = userStorage;
 	}
 	
 	
 	
-	public void addUser(User user){
-		userService.addUser(user);
-	}
-	public void deleteUser(User user){
-		userService.deleteUser(user);
-	}
-	
-	
-	
-	public List<OrderBook> getAllOrderBooks(){
-		return orderBookService.getAllOrderBooks();
-	}
-	
-	public void addOrderBook(OrderBook book){
-		orderBookService.addOrderBook(book);
-	}
-	public void deleteOrderBook(OrderBook book){
-		orderBookService.deleteOrderBook(book);
-	}
-	
-	public void showAllOrderBooks(){
-		orderBookService.showAllOrderBooks();
-	}
 	
 }
+	
+

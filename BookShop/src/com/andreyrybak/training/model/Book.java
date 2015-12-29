@@ -2,7 +2,6 @@ package com.andreyrybak.training.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Book {
 	private String name;
@@ -11,7 +10,7 @@ public class Book {
 	private Date dateOfEntrance;
 	private double price;
 	private int count;
-	private List<OrderBook> ordersBooks = new ArrayList<OrderBook>();
+	private ArrayList<OrderBook> ordersBooks; 
 
 	
 	public Book(){
@@ -64,12 +63,15 @@ public class Book {
 		this.count = count;
 	}
 
-	public List<OrderBook> getOrdersBooks() {
+	public ArrayList<OrderBook> getOrdersBooks() {
 		return ordersBooks;
 	}
 
-	public void setOrdersBooks(List<OrderBook> ordersBooks) {
+	public void setOrdersBooks(ArrayList<OrderBook> ordersBooks) {
 		this.ordersBooks = ordersBooks;
+	}
+	public void addBookInOrderBooksList(OrderBook book){
+		ordersBooks.add(book);
 	}
 	
 }
